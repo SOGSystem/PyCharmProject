@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% block title %}<h1 class="my-con1 text-center">営業管理システム</h1>{% endblock %}
+{% block css %}
+        <link rel="stylesheet" href="{% static '/CSS/login.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+    <div class="container">
+        <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username}}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">登録</button>
+        </form>
+    </div>
+
+{% endblock %}
